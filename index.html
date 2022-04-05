@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="icon" type="text/css" href="assets/images/Fav.png">
+    <!-- FONT FAMILY -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- owl carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Title Here</title>
+  </head>
+  <body>
+    <!--********** Modal **********-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Commander :</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-bottom">
+              <h4>Veuillez saisir votre code postal ou choisir un restaurant !</h4>
+            </div>
+            <!-- center form -->
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="simple-box set-label-input">
+                    <p class="dark-label">Code postal (ex. 78711):</p>
+                    <input id="inputVal" type="text" value="ex. 78711" placeholder="ex. 78711">
+                    <div class="set-form-btn">
+                      <button id="redirectButton" type="button"> Envoyez </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="simple-box set-label-input">
+                    <p class="dark-label">Choisir restaurant :</p>
+                    <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                        <option value="">Choisir restaurant...</option>
+                        <option value="/restaurants/mantes-la-ville">Mantes la jolie</option>
+                        <option value="/restaurants/bonnieres/">Bonnières sur seine</option>
+                        <option value="/restaurants/noisy-le-roi/">Noisy le roi</option>
+                        <option value="/restaurants/dreux/">Dreux</option>
+                        <option value="/restaurants/evreux/">Évreux</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--********** NAVIGATION BAR **********-->
+    <nav class="navbar navbar-expand-lg navbar-dark set-my-nav fixed-top">
+      <a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Nos Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Traiteur</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Franchise</a>
+          </li>
+        </ul>
+          <button class="set-nav-btn" data-toggle="modal" data-target="#exampleModal">COMMANDER</button>
+      </div>
+    </nav>
+    <!--********** CAROUSEL **********-->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/images/banner-1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/banner-2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/banner-3.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+     <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </button>
+    </div>
+    <!--********** CENTER SECTION **********-->
+    <!-- SECTION-1 -->
+    <div class="set-my-container mx-auto">
+      <div class="row mt-5 mb-5">
+        <div class="col-md-4" style="overflow: hidden;">
+          <div class="round-box">
+            <h2 class="main-title" data-aos="fade-right">NAHSUSHI</h2>
+            <h3 class="sub-title" data-aos="fade-right">8 ANS DE PLATS DÉLICIEUX</h3>
+            <hr class="hr-pink-line" data-aos="fade-right">
+            <div style="clear:both;"></div>
+            <p class="simple-text pt-3" data-aos="fade-right"><span class="hi-light-text">NahSushi</span> est le spécialiste des Sushis en France. Des recettes créatives plus gourmandes les unes que les autres ! <br>
+            Craquez pour nos menus variés, nos plats, nos rolls ou nos boxs à partager en famille ou entre amis. </p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <!-- carousel -->
+          <div class="set-my-carousel mt-5">
+            <div class="owl-slider set-my-carousel-org new-class-set-btn">
+              <div id="carousel-nav" class="owl-carousel">
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-0.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-1.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-2.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-3.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-5.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-6.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-7.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-8.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-9.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-10.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/1-2349-11.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- text -->
+          <div class="text-bottom text-center">
+            <h4>"Tous nos produits sont frais et préparés à la commande"</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 2 -->
+    <div class="main-sec-black pt-5 pb-5">
+      <div class="min-black-sec mx-auto">
+        <div class="text-center" data-aos="fade-up">
+          <h3 class="pink-title">A EMPORTER OU EN LIVRAISON, COMMANDEZ ET DÉGUSTEZ NOS DÉLICIEUX PLATS</h3>
+        </div>
+        <div class="row mt-5" style="overflow: hidden;">
+          <div class="col-md-5" data-aos="fade-left">
+            <img src="assets/images/car.png">
+          </div> 
+          <div class="col-md-7">
+            <div class="round-box set-bg-color">
+              <h2 class="white-title pb-5" data-aos="fade-up">Sélectionnez votre restaurant</h2>
+              <form action="" method="">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="set-label-input" data-aos="fade-up">
+                      <p>Par code postal : </p>
+                      <input id="inputVal2" type="text" value="ex. 78711" placeholder="ex. 78711">
+                      <div class="set-form-btn mb-5" data-aos="fade-up">
+                        <button id="redirectButton2" type="button"> Envoyez </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="set-label-input" data-aos="fade-up">
+                      <p>Par Ville :  </p>
+                      <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                        <option value="">Choisir restaurant...</option>
+                        <option value="/restaurants/mantes-la-ville">Mantes la jolie</option>
+                        <option value="/restaurants/bonnieres/">Bonnières sur seine</option>
+                        <option value="/restaurants/noisy-le-roi/">Noisy le roi</option>
+                        <option value="/restaurants/dreux/">Dreux</option>
+                        <option value="/restaurants/evreux/">Évreux</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>       
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 3 -->
+    <div class="parallax">
+      <div class="center-sec-3 mx-auto">
+        <div class="round-box set-bg-white text-center" data-aos="zoom-in">
+          <h3 class="sub-title">Manger seul ou à plusieurs</h3>
+          <p class="simple-text pt-4">Vous trouverez votre bonheur chez <span class="hi-light-text">NAHSUSHI</span></p>
+          <button class="set-nav-btn mt-4" data-toggle="modal" data-target="#exampleModal">COMMANDER</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SECTION 4 -->
+    <div class="set-my-container mx-auto">
+      <div class="row mt-5 mb-5">
+        <div class="col-md-4" style="overflow: hidden;">
+          <div class="">
+            <h2 class="main-title" data-aos="fade-right">COUPS DE COEUR</h2>
+            <h3 class="sub-title" data-aos="fade-right">Découvrez les nouveautés</h3>
+            <hr class="hr-pink-line" data-aos="fade-right">
+            <div style="clear:both;"></div>
+            <p class="simple-text pt-3" data-aos="fade-right">Afin de satisfaire les plus exigeants, et en quête constante de nouveautés,<span class="hi-light-text"> NAHSUSHI</span>  innove sa carte et propose de nouveaux plats</p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <!-- carousel -->
+          <div class="set-my-carousel mt-4 set-carousel-icon">
+            <div class="owl-slider set-my-carousel-org new-class-set-btn">
+              <div id="carousel" class="owl-carousel">
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/coup_coeur_1.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/coup_coeur_2.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/coup_coeur_3.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="media">
+                    <img src="assets/images/coup_coeur_4.png" class="mr-2" alt="...">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- text -->
+          <div class="text-bottom text-center mt-4">
+            <h4>"Sélection des Nouveautés 2022"</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SECTION 5  -->
+    <div class="light-grey-bg">
+      <div class="min-black-sec section-full-width">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mt-3">
+              <img src="assets/images/Carte.png" width="100%">
+            </div>
+          </div>
+          <div class="col-md-6" style="overflow: hidden;">
+            <div class="round-box">
+              <h2 class="main-title" data-aos="fade-left" data-aos-duration="1000">NOS PLATS</h2>
+              <h3 class="white-title small-font" data-aos="fade-left" data-aos-duration="1000">Une carte variée et innovante</h3>
+              <hr class="hr-pink-line" data-aos="fade-left" data-aos-duration="1000">
+              <div style="clear:both;"></div>
+              <p class="simple-text text-white-my pt-3" data-aos="fade-left" data-aos-duration="1000">La carte <span class="hi-light-text"> NAHSUSHI</span> est composée d'une variété de produits frais et préparés à la commande. <br> Nous y avons mis tout notre savoir-faire pour vous offrir des plats qualitatifs, innovants et surtout délicieux !</p>
+              <div class="text-center set-btn-pink">
+                <button class="set-nav-btn mt-4" data-aos="fade-left" data-aos-duration="1000"><a href="#"><i class="fa fa-book"></i>&nbsp;Télécharger la carte Nahsushi</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 6 -->
+    <div class="set-grery-two">
+      <div class="set-grey-sec-width mx-auto">
+        <div class="row">
+          <div class="col-md-7" style="overflow: hidden;">
+            <div class="pr-5 mr-5 set-mobile-center">
+              <h2 class="main-title" data-aos="fade-left" data-aos-duration="1000">LE CONCEPT NAHSUSHI</h2>
+              <h3 class="sub-title" data-aos="fade-left" data-aos-duration="1000">Un MIX de la cuisine japonaise et occidentale</h3>
+              <hr class="hr-pink-line align-center" data-aos="fade-left" data-aos-duration="1000">
+              <div style="clear:both;"></div>
+              <p class="simple-text pt-3" data-aos="fade-left" data-aos-duration="1000"><span class="hi-light-text"> NAHSUSHI</span>, c’est... <br>
+                Le mélange d’une cuisine japonaise et d’une cuisine occidentale qui ensemble fusionnent, pour plaire au plus grand nombre. <br>
+                Un enjeu de qualité : une préparation à la commande, des recettes authentiques, élaborées sous vos yeux et retransmises sur nos écrans, en direct Un arrivage de produits frais, tous les matins Un site internet à l'image de nos restaurants</p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="set-img">
+              <img src="assets/images/Nahsushi-comptoir.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION 7 -->
+      <div class="container-fluid pt-5 pb-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="set-img pl-3 pr-3">
+              <img src="assets/images/nahsushi_franchise_img_2.jpg" width="100%">
+            </div>
+          </div>
+          <div class="col-md-6" style="overflow: hidden;">
+            <div>
+              <h2 class="main-title" data-aos="fade-left" data-aos-duration="1000">FRANCHISE NAHSUSHI</h2>
+              <h3 class="sub-title" data-aos="fade-left" data-aos-duration="1000">Rejoignez une aventure passionnante</h3>
+              <hr class="hr-pink-line" data-aos="fade-left" data-aos-duration="1000">
+              <div style="clear:both;"></div>
+              <p class="simple-text pt-3" data-aos="fade-left" data-aos-duration="1000">La franchise <span class="hi-light-text"> NAHSUSHI</span>, c’est...</p>
+              <ul data-aos="fade-left" data-aos-duration="1000">
+                <li>Un <strong>retour sur investissement</strong> rapide</li>
+                <li>Une <strong>rentabilité solide</strong>grâce à un <strong>modèle économique</strong> bien <strong>maîtrisé</strong></li>
+                <li>Un <strong>positionnement qualitatif,</strong> différenciant, par rapport aux grandes chaines « industrielles »</li>
+                <li>Un <strong>accompagnement personnalisé</strong> à toutes les étapes de votre projet, pour en <strong>assurer la réussite</strong></li>
+                <li>Une <strong> créativité culinaire</strong> nous permettant de <strong>renouveler</strong>notre <strong>carte </strong>régulièrement</li>
+              </ul>
+              <div class="text-right">
+                <div class="set-form-btn mt-5">
+                  <button data-aos="fade-left" data-aos-duration="1000"> <a href="#">DEVENIR FRANCHISÉ</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-min-width mx-auto">
+          <div class="row">
+            <div class="col-md-3 mt-4">
+              <div class="ftr-sec-min">
+                <h4>A PROPOS</h4>
+                <hr class="hr-pink-line align-center">
+                <div style="clear:both;"></div>
+                <p>Dégustez le meilleur de la cuisine japonaise et occidentale dans un même endroit. Commandez dans un de nos restaurant près de chez vous et profitez de vos plats préférés.</p>
+                <p>Mentions légales | Conditions de Ventes</p>
+              </div>
+            </div>
+            <div class="col-md-3 mt-4">
+              <div class="ftr-sec-min">
+                <h4>NAHSUSHI</h4>
+                <hr class="hr-pink-line align-center">
+                <div style="clear:both;"></div>
+                <span>- <a href="#">La carte Nahsushi</a></span>
+                <span>- Les restaurants</span>
+                <span>- Traiteur</span>
+                <span>- Franchise</span>
+              </div>
+            </div>
+            <div class="col-md-3 mt-4">
+              <div class="ftr-sec-min">
+                <h4>CLIENTS</h4>
+                <hr class="hr-pink-line align-center">
+                <div style="clear:both;"></div>
+                <span>- Mes commandes</span>
+                <span>- Mon compte</span>
+                <span>- Se connecter</span>
+                <span>- Créer compte</span>
+              </div>
+            </div>
+            <div class="col-md-3 mt-4">
+              <div class="ftr-sec-min">
+                <h4>NOUS SUIVRE</h4>
+                <hr class="hr-pink-line align-center">
+                <div style="clear:both;"></div>
+                <a href="#"><img src="assets/images/icon-facebook.png"></a>
+                <a href="#"><img src="assets/images/icon-instagram.png"></a>
+              </div>
+            </div>
+          </div>
+          <div class="set-copy-right ftr-sec-min text-center pt-4">
+            <span>© 2022 | Tous droits réservés</span>
+          </div>
+        </div>
+      </footer>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+    jQuery("#carousel").owlCarousel({
+      autoplay: true,
+      //rewind: true, /* use rewind if you don't want loop */
+      margin: 20,
+      loop:true,
+       /*
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      */
+      responsiveClass: true,
+      // autoHeight: true,
+      autoplayTimeout: 1000,
+      // smartSpeed: 800,
+      nav: true,
+      responsive: {
+        0: {
+          items: 2
+        },
+
+        600: {
+          items: 3
+        },
+
+        1024: {
+          items: 3
+        },
+
+        1366: {
+          items: 3
+        }
+      }
+    });
+    </script>
+    <script>
+    jQuery("#carousel-nav").owlCarousel({
+      autoplay: true,
+      //rewind: true, /* use rewind if you don't want loop */
+      margin: 20,
+      loop:true,
+       /*
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      */
+      responsiveClass: true,
+      // autoHeight: true,
+      autoplayTimeout: 1000,
+      // smartSpeed: 800,
+      nav: true,
+      responsive: {
+        0: {
+          items: 2
+        },
+
+        600: {
+          items: 3
+        },
+
+        1024: {
+          items: 4
+        },
+
+        1366: {
+          items: 5
+        }
+      }
+    });
+    </script>
+    <script> 
+      function redirect() {
+        const inputVal = Number(document.getElementById("inputVal").value);
+        let url = "";
+        if (inputVal) {
+          if (inputVal === 1 || inputVal === 2)
+      { 
+            url = "/restaurants/mantes-la-ville/"
+          } 
+      else if (inputVal === 3 || inputVal === 4){ 
+            url = "/restaurants/bonnieres/"
+          } 
+
+      else if (inputVal === 5 || inputVal === 6){ 
+            url = "/restaurants/noisy-le-roi/"
+          } 
+
+      else if (inputVal === 7 || inputVal === 8){ 
+            url = "/restaurants/dreux/"
+          } 
+
+      else if (inputVal === 9 || inputVal === 10){ 
+            url = "/restaurants/evreux/"
+          } 
+
+
+      else {
+            alert("Le code postal " + inputVal + " n'est pas servi pour le moment!!")
+          }
+        }
+        
+        if (url) {
+          window.location.href = url
+        }
+      }
+      document.getElementById("redirectButton").addEventListener("click", redirect);
+    </script>
+    <script>
+      function redirect2() {
+        const inputVal2 = Number(document.getElementById("inputVal2").value);
+        let url = "";
+        if (inputVal2) {
+          if (inputVal2 === 1 || inputVal2 === 2)
+      { 
+            url = "/restaurants/mantes-la-ville/"
+          } 
+      else if (inputVal2 === 3 || inputVal2 === 4){ 
+            url = "/restaurants/bonnieres/"
+          } 
+
+      else if (inputVal2 === 5 || inputVal2 === 6){ 
+            url = "/restaurants/noisy-le-roi/"
+          } 
+
+      else if (inputVal2 === 7 || inputVal2 === 8){ 
+            url = "/restaurants/dreux/"
+          } 
+
+      else if (inputVal2 === 9 || inputVal2 === 10){ 
+            url = "/restaurants/evreux/"
+          } 
+
+
+      else {
+            alert("Le code postal " + inputVal2 + " n'est pas servi pour le moment!!")
+          }
+        }
+        
+        if (url) {
+          window.location.href = url
+        }
+      }
+      document.getElementById("redirectButton2").addEventListener("click", redirect2);
+      </script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+  </body>
+</html>
